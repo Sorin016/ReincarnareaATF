@@ -2,9 +2,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,12 +39,17 @@ public class Browser {
 //        Thread.sleep(3000);
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         webDriver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-       // WebElement login = webDriver.findElement(By.xpath("//button[@type='submit']"));
+        // WebElement login = webDriver.findElement(By.xpath("//button[@type='submit']"));
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()=' Login ']")));
         webDriver.findElement(By.xpath("//*[text()=' Login ']")).click();
-      //  webDriver.findElement(RelativeLocator.with(By.tagName("input")).above(login)).sendKeys("12334");
-        Thread.sleep(4000);
+        //  webDriver.findElement(RelativeLocator.with(By.tagName("input")).above(login)).sendKeys("12334");
+
+        Wait<WebDriver> fluentWaint = new FluentWait<WebDriver>(webDriver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        fluentWaint.until(ExpectedConditions.elementToBeClickable(By.xpath("(//keeper-lock[@role='button'])[1]")));
 
 
 //        webDriver.quit();
