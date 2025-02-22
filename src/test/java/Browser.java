@@ -49,10 +49,10 @@ public class Browser {
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        fluentWaint.until(ExpectedConditions.elementToBeClickable(By.xpath("(//keeper-lock[@role='button'])[1]")));
+        fluentWaint.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[text()='Required'])[1]")));
 
 
-//        webDriver.quit();
+        webDriver.quit();
 
     }
 }
