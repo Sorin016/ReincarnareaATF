@@ -1,5 +1,6 @@
 package StepDefinition;
 
+import Utils.Singletone;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
 
