@@ -1,5 +1,6 @@
 package StepDefinition;
 
+import Utils.ScenarioContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -7,6 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
+import static Utils.DataKeys.USERNAME;
+import static Utils.ScenarioContext.getData;
+import static Utils.ScenarioContext.saveData;
 
 public class LoginSteps extends AbstractStepDef {
 
@@ -16,8 +21,8 @@ public class LoginSteps extends AbstractStepDef {
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
         driver.findElement(By.xpath("//input[@name='username']")).sendKeys(username);
+        saveData(USERNAME,username);
         Thread.sleep(5000);
-
     }
 
     @When("^User insert (.*)$")
@@ -33,8 +38,13 @@ public class LoginSteps extends AbstractStepDef {
 
     @Then("User is redirect to the home page")
     public void user_is_redirect_to_the_home_page() {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Time at Work']")));
-        driver.findElement(By.xpath("//p[text()='Time at Work']")).isDisplayed();
+        if (getData(USERNAME).equals("Admin")) {
+            WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Time at Work']")));
+            driver.findElement(By.xpath("//p[text()='Time at Work']")).isDisplayed();
+        }
+        else {
+            driver.findElement(By.xpath("//p[text()='Invalid credentials']")).isDisplayed();
+        }
     }
 }

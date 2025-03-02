@@ -24,6 +24,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//p[text()='Time at Work']")
     private WebElement timeAtWorkText;
 
+    @FindBy(xpath = "//p[text()='Invalid credentials']")
+    private WebElement invalidCredentials;
+
     public LoginPage(WebDriver driver) {
         super(driver); // Call the constructor of the AbstractPage
     }
