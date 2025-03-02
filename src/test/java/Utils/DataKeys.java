@@ -1,5 +1,6 @@
 package Utils;
 
 public enum DataKeys {
-    USERNAME;
+    USERNAME,
+    PASSWORD;
 }

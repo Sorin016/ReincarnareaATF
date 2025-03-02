@@ -1,50 +1,56 @@
 package StepDefinition;
 
+import Pages.LoginPage;
 import Utils.ScenarioContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static Utils.DataKeys.PASSWORD;
 import static Utils.DataKeys.USERNAME;
+import static Utils.HighlightElement.highlightElement;
 import static Utils.ScenarioContext.getData;
 import static Utils.ScenarioContext.saveData;
+import static Utils.WaitUntil.waitUntil;
+import static actions.Actions.*;
 
 public class LoginSteps extends AbstractStepDef {
 
     @When("^User inserts (.*)$")
-    public void user_insert_username(String username) throws InterruptedException {
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='username']")));
-        driver.findElement(By.xpath("//input[@name='username']")).sendKeys(username);
-        saveData(USERNAME,username);
-        Thread.sleep(5000);
+    public void user_insert_username(String username){
+        navigate(loginPageUrl);
+        waitUntil(3);
+        sendKey(loginPage.getUsernameField(), username);
+        saveData(USERNAME, username);
+        highlightElement(loginPage.getUsernameField());
     }
 
     @When("^User insert (.*)$")
     public void user_insert_password(String password) {
-        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
-
+        sendKey(loginPage.getPasswordField(), password);
+        saveData(PASSWORD, password);
     }
 
     @When("User click submit")
-    public void user_click_submit() {
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
+    public void user_click_submit() throws InterruptedException {
+        click(loginPage.getSubmitButton(), 2);
     }
 
     @Then("User is redirect to the home page")
-    public void user_is_redirect_to_the_home_page() {
+    public void user_is_redirect_to_the_home_page() throws InterruptedException {
         if (getData(USERNAME).equals("Admin")) {
-            WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Time at Work']")));
-            driver.findElement(By.xpath("//p[text()='Time at Work']")).isDisplayed();
-        }
-        else {
-            driver.findElement(By.xpath("//p[text()='Invalid credentials']")).isDisplayed();
+            waitUntil(3);
+            isDisplayed(loginPage.getTimeAtWorkText());
+        } else {
+            waitUntil(5);
+            highlightElement(loginPage.getInvalidCredentials());
+            waitUntil(2);
+            isDisplayed(loginPage.getInvalidCredentials());
         }
     }
 }
