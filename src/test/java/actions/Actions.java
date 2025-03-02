@@ -1,8 +1,17 @@
 package actions;
 
 import StepDefinition.AbstractStepDef;
-import io.cucumber.java.an.E;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import io.cucumber.java.Scenario;
+
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import static Utils.CreationFolderIfNotExist.createDirectoryIfNotExists;
 
 public class Actions extends AbstractStepDef {
 
@@ -25,5 +34,24 @@ public class Actions extends AbstractStepDef {
 
     public static void navigate(String navigateTo) {
         driver.get(navigateTo);
+    }
+
+    public static void takeScreenshot(Scenario scenario) {
+        try {
+            String screenshotName = generateScreenshotName(scenario.getName());
+            String directoryName = "target/screenshots/";
+            createDirectoryIfNotExists(directoryName);
+            File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(file, new File(directoryName + screenshotName + ".png"));
+        } catch (Exception e) {
+            System.out.println("Screenshot nu lucreaza " + e);
+        }
+    }
+
+    private static String generateScreenshotName(String scenarioName) {
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        String timestamp = currentTime.format(formatter);
+        return scenarioName.replaceAll("[^a-zA-Z0-9_-]", "_") + "_" + timestamp;
     }
 }

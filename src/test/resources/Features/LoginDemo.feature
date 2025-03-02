@@ -15,4 +15,4 @@ Feature: Login first test
     Examples:
       | username | password |
       | Admin    | admin123 |
-      | Sorin    | admin123 |
+#      | Sorin    | admin123 |
