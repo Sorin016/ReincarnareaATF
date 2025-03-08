@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/Features",
         glue = {"StepDefinition","hooks"},
-        tags = "@Run")
+        tags = "@Run",
+        plugin = {"html:target/HtmlReport.htm"})
 
 public class Runner {
 
