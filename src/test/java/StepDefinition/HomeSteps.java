@@ -16,6 +16,7 @@ public class HomeSteps extends AbstractStepDef{
     public void userClickOnPage(String page) {
        click(homePage.getAdminLink(),2);
        waitUntil(4);
+       log.info("first home page setp");
     }
     @When("User check save and check all the users inside the table")
     public void userCheckTheUsers() {
