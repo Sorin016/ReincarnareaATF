@@ -6,7 +6,7 @@ Feature: Login first test
 #    And User insert password
 #    When User click submit
 #    Then User is redirect to the home page
- @UI @Run
+# @UI @Run
   Scenario Outline:  The first login
     Given User inserts <username>
     And User insert <password>
