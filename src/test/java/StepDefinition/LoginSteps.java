@@ -32,7 +32,6 @@ public class LoginSteps extends AbstractStepDef {
     @When("User click submit")
     public void userClickSubmit() throws InterruptedException {
         click(loginPage.getSubmitButton(), 2);
-
     }
 
     @Then("User is redirect to the home page")
