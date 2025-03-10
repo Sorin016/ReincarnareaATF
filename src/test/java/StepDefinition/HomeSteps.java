@@ -20,6 +20,6 @@ public class HomeSteps extends AbstractStepDef{
     public void userCheckTheUsers() {
        List<String> tableList=new ArrayList<>();
 //       List<WebElement> table=driver.findElements((By) adminPage.getTableWithAllUsers());
-        log.info("second");
+        log.info("second hi");
     }
 }
