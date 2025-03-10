@@ -24,5 +24,6 @@ public class HomeSteps extends AbstractStepDef {
         log.info("second hi");
 
         log.info("second so");
+        log.info("second hi");
     }
 }
