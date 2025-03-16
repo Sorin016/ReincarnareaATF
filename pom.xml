@@ -22,13 +22,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version> <!-- Use the latest version -->
-            <scope>test</scope>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
@@ -61,14 +54,12 @@
         </dependency>
 
         <!-- TestNG dependency -->
-            <dependency>
-                <groupId>org.testng</groupId>
-                <artifactId>testng</artifactId>
-                <version>7.7.0</version> <!-- Make sure to use the latest version -->
-                <scope>test</scope>
-            </dependency>
-
-
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.0</version> <!-- Make sure to use the latest version -->
+            <scope>test</scope>
+        </dependency>
 
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
@@ -86,21 +77,15 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.29.0</version>
-        </dependency>
 
-            <!-- Logback Classic (Logging implementation for SLF4J) -->
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>1.4.12</version> <!-- Use the latest version -->
-            </dependency>
+        <!--            &lt;!&ndash; Logback Classic (Logging implementation for SLF4J) &ndash;&gt;-->
+        <!--            <dependency>-->
+        <!--                <groupId>ch.qos.logback</groupId>-->
+        <!--                <artifactId>logback-classic</artifactId>-->
+        <!--                <version>1.4.12</version> &lt;!&ndash; Use the latest version &ndash;&gt;-->
+        <!--            </dependency>-->
 
-<!--        Log4 j-->
+        <!--        Log4 j-->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -122,7 +107,6 @@
             <artifactId>poi-ooxml</artifactId>
             <version>5.4.0</version>
         </dependency>
-
 
     </dependencies>
 
