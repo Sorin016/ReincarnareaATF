@@ -4,13 +4,13 @@ import StepDefinition.AbstractStepDef;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static Utils.AbstractLocations.SET_PROPERTY_CHROME;
+
 public class Singletone extends AbstractStepDef {
     private static WebDriver driver = null;
-    private static final String SET_PROPERTY_CHROME = "webdriver.chrome.driver";
-
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty(SET_PROPERTY_CHROME, chromeDriver );
+            System.setProperty(String.valueOf(SET_PROPERTY_CHROME), chromeDriver );
             driver = new ChromeDriver();
         }
         return driver;

@@ -17,5 +17,7 @@ public class AbstractStepDef {
     public AdminPage adminPage = new AdminPage(driver);
     protected static String chromeDriver = PropretyLoader.loadProperty("chromeDriver");
     protected static String loginPageUrl = PropretyLoader.loadProperty("loginPageUrl");
-    Logger log= LogManager.getLogger();
+    public static String excelFilePaht = PropretyLoader.loadProperty("excelFilePaht");
+    public static String excelSheet = PropretyLoader.loadProperty("excelSheet");
+    public Logger log = LogManager.getLogger();
 }
