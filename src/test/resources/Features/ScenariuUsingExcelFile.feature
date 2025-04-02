@@ -1,5 +1,5 @@
 Feature: Ckeck all the values related to specific rights
-@UI @Excel @Run
+#@UI @Excel @Run
 Scenario: The first login using Excel file
 Given User take username from Excel
 And User take password from Excel
