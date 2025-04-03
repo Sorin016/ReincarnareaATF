@@ -49,7 +49,8 @@ public class RestAssuredSteps {
                 .post(restAssuredBaseURL + "/api/users");
         Assert.assertEquals(postResponse.getStatusCode(), SC_CREATED);
     }
-    @Test //update the record
+    @Test
+    //update the record
     public void put() {
         Map<String, Object> map = new HashMap<>();
         map.put("first_name", "Tobias");
