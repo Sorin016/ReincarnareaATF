@@ -34,7 +34,7 @@ public class RestAssuredSteps {
         getResponse.then().body("data[2].first_name", equalTo("Tobias"));
     }
 
-    @Test
+    @Test //insert a record
     public void post() {
         Map<String, Object> map = new HashMap<>();
         map.put("first_name", "Tobias");
@@ -48,5 +48,21 @@ public class RestAssuredSteps {
                 .when()
                 .post(restAssuredBaseURL + "/api/users");
         Assert.assertEquals(postResponse.getStatusCode(), SC_CREATED);
+    }
+    @Test //update the record
+    public void put() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("first_name", "Tobias");
+        map.put("last_name", "Bias");
+        JSONObject jsonRequest = new JSONObject(map);
+
+        postResponse = RestAssured
+                .given()
+                .header("Content-Type", "application/json")
+                .body(jsonRequest.toJSONString())
+                .when()
+                .put(restAssuredBaseURL + "/api/users/2");
+        System.out.println(postResponse.getBody().asString());
+        Assert.assertEquals(postResponse.getStatusCode(), SC_OK);
     }
 }
