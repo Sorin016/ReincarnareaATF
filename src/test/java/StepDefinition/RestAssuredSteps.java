@@ -34,7 +34,8 @@ public class RestAssuredSteps {
         getResponse.then().body("data[2].first_name", equalTo("Tobias"));
     }
 
-    @Test //insert a record
+    @Test
+    //insert a record
     public void post() {
         Map<String, Object> map = new HashMap<>();
         map.put("first_name", "Tobias");
