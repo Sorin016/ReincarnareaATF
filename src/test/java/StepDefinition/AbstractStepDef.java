@@ -22,5 +22,6 @@ public class AbstractStepDef {
     public static String excelFilePaht = PropretyLoader.loadProperty("excelFilePaht");
     public static String excelSheet = PropretyLoader.loadProperty("excelSheet");
     public static String autoItUploadFileSite = PropretyLoader.loadProperty("autoItUploadFileSite");
+    public static String restAssuredBaseURL = PropretyLoader.loadProperty("restAssuredBaseURL");
     public Logger log = LogManager.getLogger();
 }
