@@ -22,5 +22,8 @@ public class HomeSteps extends AbstractStepDef {
         List<String> tableList = new ArrayList<>();
 //       List<WebElement> table=driver.findElements((By) adminPage.getTableWithAllUsers());
         log.info("second hi");
+
+        log.info("second so");
+        log.info("second hi");
     }
 }
