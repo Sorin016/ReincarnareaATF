@@ -4,6 +4,7 @@ import StepDefinition.AbstractStepDef;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import io.cucumber.java.Scenario;
 
@@ -13,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 
 import static Utils.CreationFolderIfNotExist.createDirectoryIfNotExists;
 
-public class Actions extends AbstractStepDef {
+public class Actions {
 
     public static void isDisplayed(WebElement element) {
         element.isDisplayed();
@@ -32,11 +33,11 @@ public class Actions extends AbstractStepDef {
         }
     }
 
-    public static void navigate(String navigateTo) {
+    public static void navigate(String navigateTo, WebDriver driver) {
         driver.get(navigateTo);
     }
 
-    public static void takeScreenshot(Scenario scenario) {
+    public static void takeScreenshot(Scenario scenario,WebDriver driver) {
         try {
             String screenshotName = generateScreenshotName(scenario.getName());
             String directoryName = "target/screenshots/";
