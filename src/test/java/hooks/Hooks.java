@@ -27,7 +27,7 @@ public class Hooks extends AbstractStepDef {
     @AfterStep("@UI")
     public void takeScreenShot(Scenario scenario) {
         log.info("take a screenshot before steps");
-        takeScreenshot(scenario);
+        takeScreenshot(scenario,driver);
     }
 
     @Before("@Excel")

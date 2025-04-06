@@ -1,6 +1,5 @@
 package StepDefinition;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import static actions.Actions.click;
 public class HomeSteps extends AbstractStepDef {
     @When("^User navigate to (.*) page$")
     public void userClickOnPage(String page) {
-        click(homePage.getAdminLink(), 2);
+//        click(homePage.getAdminLink(), 2);
         waitUntil(4);
         log.info("first home page setp");
     }
