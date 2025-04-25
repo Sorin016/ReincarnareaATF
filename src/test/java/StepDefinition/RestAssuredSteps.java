@@ -82,7 +82,6 @@ public class RestAssuredSteps {
     }
 
     @Test
-<<<<<<< Updated upstream
     public void cc() {
         Object ss[] = {"sorin", 1, LocalDate.now(), new String[]{"obiec", Arrays.toString(new String[]{"dan", "tamara"}),}};
         System.out.println(Arrays.deepToString(ss));
@@ -117,10 +116,11 @@ public class RestAssuredSteps {
     }
     @Test
     public void moveFileToDirectory() throws IOException {
-       File file=new File("FilePentruTXT/fileToMove.txt");
-       File directoryLocation=new File("FilePentruTXT/moveDirectory");
-       FileUtils.moveFileToDirectory(file,directoryLocation,true);
-=======
+        File file = new File("FilePentruTXT/fileToMove.txt");
+        File directoryLocation = new File("FilePentruTXT/moveDirectory");
+        FileUtils.moveFileToDirectory(file, directoryLocation, true);
+    }
+
     //json schema validation
     public void get() {
         given().get(restAssuredBaseURL + "/api/users?page=2")
@@ -135,6 +135,5 @@ public class RestAssuredSteps {
     public void afis(){
         String s="      sorin     ";
         System.out.println("s"+s.strip()+"s");
->>>>>>> Stashed changes
     }
 }
