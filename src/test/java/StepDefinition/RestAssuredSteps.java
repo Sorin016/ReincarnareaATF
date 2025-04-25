@@ -135,5 +135,7 @@ public class RestAssuredSteps {
     public void afis(){
         String s="      sorin     ";
         System.out.println("s"+s.strip()+"s");
+        System.out.println("sorin");
+        System.out.println("so");
     }
 }
