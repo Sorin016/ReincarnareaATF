@@ -137,5 +137,6 @@ public class RestAssuredSteps {
         System.out.println("s"+s.strip()+"s");
         System.out.println("sorin");
         System.out.println("so");
+        System.out.println();
     }
 }
