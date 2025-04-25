@@ -12,5 +12,6 @@ public class Regex3 {
 
         while (matcher.find())
             System.out.println(matcher.group());
+
     }
 }
