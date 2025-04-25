@@ -17,6 +17,7 @@ import java.util.Map;
 
 import static StepDefinition.AbstractStepDef.restAssuredBaseURL;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.equalTo;
@@ -41,6 +42,13 @@ public class RestAssuredSteps {
     }
 
     @Test
+    public void checksWithAssert() {
+        connect();
+        getResponse.then().assertThat().body("data[2].id", equalTo(9));
+        getResponse.then().body("data[2].first_name", equalTo("Tobias"));
+    }
+
+    @Test
     //insert a record
     public void post() {
         Map<String, Object> map = new HashMap<>();
@@ -48,8 +56,7 @@ public class RestAssuredSteps {
         map.put("last_name", "Bias");
         JSONObject jsonRequest = new JSONObject(map);
 
-        postResponse = RestAssured
-                .given()
+        postResponse = given()
                 .header("Content-Type", "application/json")
                 .body(jsonRequest.toJSONString())
                 .when()
@@ -61,12 +68,11 @@ public class RestAssuredSteps {
     //update the record
     public void put() {
         Map<String, Object> map = new HashMap<>();
-        map.put("first_name", "Tobias");
+        map.put("first_name", "Sorin");
         map.put("last_name", "Bias");
         JSONObject jsonRequest = new JSONObject(map);
 
-        postResponse = RestAssured
-                .given()
+        postResponse = given()
                 .header("Content-Type", "application/json")
                 .body(jsonRequest.toJSONString())
                 .when()
@@ -110,8 +116,24 @@ public class RestAssuredSteps {
     }
     @Test
     public void moveFileToDirectory() throws IOException {
-       File file=new File("FilePentruTXT/fileToMove.txt");
-       File directoryLocation=new File("FilePentruTXT/moveDirectory");
-       FileUtils.moveFileToDirectory(file,directoryLocation,true);
+        File file = new File("FilePentruTXT/fileToMove.txt");
+        File directoryLocation = new File("FilePentruTXT/moveDirectory");
+        FileUtils.moveFileToDirectory(file, directoryLocation, true);
+    }
+
+    //json schema validation
+    public void get() {
+        given().get(restAssuredBaseURL + "/api/users?page=2")
+                .then()
+                .assertThat()                 
+                .body(matchesJsonSchemaInClasspath("JSONSchema/schema.json"))
+                .body("data[4].first_name",equalTo("George"));
+        System.out.println(getResponse.getBody().asString());
+        Assert.assertEquals(getResponse.getStatusCode(), SC_OK);
+    }
+    @Test
+    public void afis(){
+        String s="      sorin     ";
+        System.out.println("s"+s.strip()+"s");
     }
 }
