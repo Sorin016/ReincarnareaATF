@@ -9,7 +9,6 @@ public class Regex3 {
         String patt="\\d*\\${1}";
         Pattern pattern=Pattern.compile(patt);
         Matcher matcher=pattern.matcher(s);
-
         while (matcher.find())
             System.out.println(matcher.group());
     }
