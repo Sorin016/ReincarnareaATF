@@ -24,5 +24,6 @@ public class FileIOApacheCommonsIO {
         //sterge tot si insereaza doar ce ii dai
         File file=new File("FileForIO_ApacheCommonsIO/Salut.txt");
         FileUtils.write(file,"este viata frumoasa 2","UTF-8",false);
+
     }
 }
