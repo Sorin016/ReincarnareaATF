@@ -86,34 +86,38 @@ public class RestAssuredSteps {
         Object ss[] = {"sorin", 1, LocalDate.now(), new String[]{"obiec", Arrays.toString(new String[]{"dan", "tamara"}),}};
         System.out.println(Arrays.deepToString(ss));
     }
-    
+
     @Test
     public void ccs() {
-        String a="ABCD";
-        String b="";
-        for(int i=a.length()-1;i>=0;i--)
-            b=b+a.charAt(i);
+        String a = "ABCD";
+        String b = "";
+        for (int i = a.length() - 1; i >= 0; i--)
+            b = b + a.charAt(i);
         System.out.println(b);
     }
+
     @Test
     public void fileSort() throws IOException {
-       File file=new File("FilePentruTXT/sort.txt");
-       List<String> list = FileUtils.readLines(file,"UTF-8");
-       list.sort(String::compareTo);
-       System.out.println(list);
+        File file = new File("FilePentruTXT/sort.txt");
+        List<String> list = FileUtils.readLines(file, "UTF-8");
+        list.sort(String::compareTo);
+        System.out.println(list);
     }
+
     @Test
     public void copyFile() throws IOException {
-       File file=new File("FilePentruTXT/sort.txt");
-       File fileCopy=new File("FilePentruTXT/sortCopy.txt");
-       FileUtils.copyFile(file,fileCopy);
+        File file = new File("FilePentruTXT/sort.txt");
+        File fileCopy = new File("FilePentruTXT/sortCopy.txt");
+        FileUtils.copyFile(file, fileCopy);
     }
+
     @Test
     public void copyFileToDirectory() throws IOException {
-       File file=new File("FilePentruTXT/sort.txt");
-       File directoryLocation=new File("FilePentruTXT/directory");
-       FileUtils.copyFileToDirectory(file,directoryLocation);
+        File file = new File("FilePentruTXT/sort.txt");
+        File directoryLocation = new File("FilePentruTXT/directory");
+        FileUtils.copyFileToDirectory(file, directoryLocation);
     }
+
     @Test
     public void moveFileToDirectory() throws IOException {
         File file = new File("FilePentruTXT/fileToMove.txt");
@@ -125,16 +129,17 @@ public class RestAssuredSteps {
     public void get() {
         given().get(restAssuredBaseURL + "/api/users?page=2")
                 .then()
-                .assertThat()                 
+                .assertThat()
                 .body(matchesJsonSchemaInClasspath("JSONSchema/schema.json"))
-                .body("data[4].first_name",equalTo("George"));
+                .body("data[4].first_name", equalTo("George"));
         System.out.println(getResponse.getBody().asString());
         Assert.assertEquals(getResponse.getStatusCode(), SC_OK);
     }
+
     @Test
-    public void afis(){
-        String s="      sorin     ";
-        System.out.println("s"+s.strip()+"s");
+    public void afis() {
+        String s = "      sorin     ";
+        System.out.println("s" + s.strip() + "s");
         System.out.println("mo =+");
     }
 }
