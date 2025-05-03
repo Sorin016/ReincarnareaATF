@@ -1,4 +1,4 @@
-package StepDefinition.Restul.TabelPicker;
+package Exercitii.TabelPicker;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
