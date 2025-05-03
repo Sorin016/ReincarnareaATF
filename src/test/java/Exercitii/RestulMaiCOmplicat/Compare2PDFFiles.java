@@ -1,4 +1,4 @@
-package StepDefinition.Restul;
+package Exercitii.RestulMaiCOmplicat;
 
 import de.redsix.pdfcompare.PdfComparator;
 import lombok.extern.slf4j.Slf4j;
