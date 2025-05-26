@@ -1,6 +1,5 @@
-package Exercitii;
+package Exercitii.ExercitiiDeInterviu;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.HashMap;
 import java.util.Map;
 
