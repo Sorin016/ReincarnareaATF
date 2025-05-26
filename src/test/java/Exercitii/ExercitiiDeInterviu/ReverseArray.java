@@ -1,6 +1,4 @@
-package Exercitii;
-
-import java.util.Arrays;
+package Exercitii.ExercitiiDeInterviu;
 
 public class ReverseArray {
     public static void main(String[] args) {

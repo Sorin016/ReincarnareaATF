@@ -1,4 +1,4 @@
-package Exercitii;
+package Exercitii.ExercitiiDeInterviu;
 
 public class ReverseCuChatAt {
     public static void main(String[] args) {

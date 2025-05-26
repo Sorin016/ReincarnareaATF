@@ -1,4 +1,4 @@
-package Exercitii;
+package Exercitii.ExercitiiDeInterviu;
 
 public class BubbleSortDesc {
     public static void main(String[] args) {

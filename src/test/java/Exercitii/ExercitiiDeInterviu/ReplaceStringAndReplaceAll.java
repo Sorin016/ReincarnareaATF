@@ -1,4 +1,4 @@
-package Exercitii;
+package Exercitii.ExercitiiDeInterviu;
 
 public class ReplaceStringAndReplaceAll {
     public static void main(String[] args) {
