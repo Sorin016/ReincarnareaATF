@@ -1,4 +1,4 @@
-package Exercitii.ExercitiiDeInterviu;
+package Exercitii.ExercitiiDeInterviu.Array;
 
 public class DeCiteOriSeContineOcifraInArray {
     public static void main(String[] args) {
