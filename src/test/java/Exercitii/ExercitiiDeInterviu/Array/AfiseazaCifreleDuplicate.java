@@ -1,4 +1,4 @@
-package Exercitii.ExercitiiDeInterviu;
+package Exercitii.ExercitiiDeInterviu.Array;
 
 public class AfiseazaCifreleDuplicate {
     public static void main(String[] args) {
@@ -11,6 +11,5 @@ public class AfiseazaCifreleDuplicate {
                 }
             }
         }
-
     }
 }

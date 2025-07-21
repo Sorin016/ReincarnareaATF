@@ -1,4 +1,4 @@
-package Exercitii.ExercitiiDeInterviu;
+package Exercitii.ExercitiiDeInterviu.Array;
 
 import java.util.Scanner;
 

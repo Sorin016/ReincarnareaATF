@@ -1,4 +1,4 @@
-package Exercitii.ExercitiiDeInterviu;
+package Exercitii.ExercitiiDeInterviu.Array;
 
 public class ReverseArray {
     public static void main(String[] args) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ImpartireaUnuiStringinPartiEgale {
     public static void main(String[] args) {
-        String text = "abcdefghijkl";
+        String text = "abcdefghijkll";
         List<String> parts = divideString(text, 3);
         System.out.println(parts);
     }
