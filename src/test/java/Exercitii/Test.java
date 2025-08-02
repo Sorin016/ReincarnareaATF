@@ -1,22 +1,24 @@
 package Exercitii;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Test {
     public static void main(String[] args) {
-        var list = Arrays.asList(1, 2, 3, 4, 5);
-        var lis = Arrays.asList("sorin", "dan", "dana", "svetlana", "sorin");
-        String s = "spunes";
-//        Map<Integer,String>li=list.stream().collect(Collectors.toMap(String::length, Function.identity()));
-//        li.forEach((k,v)-> System.out.println(k+" "+v));
-        Map<Character, Long> lll = s.chars().mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        lll.forEach((k,v)-> System.out.println(k+" "+v));
-        System.out.println("Saa");
 
+    }
+    public static int a=10;
+    int d=10;
+    public void afisare(){
+        int c=10;
+        int b=c+a;
+    }
+    //daca ai metoda statica dar variabila non statica apare greseala
+    //dar invers merge
+    //ca sa mearga trebue sa creezi variabila care aparine clasei si peurma sa apelezi
+    public static void afis(Test d){
+        int e=d.d+10;
     }
 
 }
-
