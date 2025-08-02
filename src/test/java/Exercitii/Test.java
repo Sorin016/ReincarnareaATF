@@ -10,19 +10,19 @@ import org.testng.annotations.*;
 
 
 public class Test {
-        @DataProvider(name = "valoriAdunare")
-        public Object[][] getData() {
-            return new Object[][] {
-                    {2, 3, 5},
-                    {10, 0, 10},
-                    {-1, -2, -3}
-            };
-        }
 
-        @Test(dataProvider = "valoriAdunare")
-        public void testAduna(int a, int b, int sumaAsteptata) {
-            Calculator calc = new Calculator();
-            assert sumaAsteptata == calc.aduna(a, b);
-        }
+    public static void main(String[] args) {
+        System.out.println("salut");
+    }
+    public static int a=10;
+    int d=10;
+    public void afisare(){
+        int c=10;
+        int b=c+a;
+    }
+    //daca ai metoda statica dar variabila non statica apare greseala
+    //dar invers merge
+    //ca sa mearga trebue sa creezi variabila care aparine clasei si peurma sa apelezi
+   
     }
 
