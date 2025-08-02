@@ -1,29 +1,28 @@
 package Exercitii;
 
+import io.cucumber.java.be.I;
+import io.cucumber.java.sl.In;
+import org.joda.time.IllegalInstantException;
+import org.testng.IInjectorFactory;
+
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import org.testng.annotations.*;
+
 
 public class Test {
-    public static void main(String[] args) {
-        var ss = Arrays.asList(1, 2, 3, 4, 4, 3);
-        Set<Integer> seen = new HashSet();
-        Set<Integer> duplicates = ss.stream()
-                .filter(s -> !seen.add(s)).collect(Collectors.toSet());
-        duplicates.forEach(System.out::println);
-    }
-    public static int a=10;
-    int d=10;
-    public void afisare(){
-        int c=10;
-        int b=c+a;
-    }
-    //daca ai metoda statica dar variabila non statica apare greseala
-    //dar invers merge
-    //ca sa mearga trebue sa creezi variabila care aparine clasei si peurma sa apelezi
-    public static void afis(Test d){
-        int e=d.d+10;
+        @DataProvider(name = "valoriAdunare")
+        public Object[][] getData() {
+            return new Object[][] {
+                    {2, 3, 5},
+                    {10, 0, 10},
+                    {-1, -2, -3}
+            };
+        }
+
+        @Test(dataProvider = "valoriAdunare")
+        public void testAduna(int a, int b, int sumaAsteptata) {
+            Calculator calc = new Calculator();
+            assert sumaAsteptata == calc.aduna(a, b);
+        }
     }
 
-}
