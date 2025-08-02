@@ -14,6 +14,7 @@ public class Test {
         Map<Character, Long> lll = s.chars().mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         lll.forEach((k,v)-> System.out.println(k+" "+v));
+        System.out.println("Saa");
 
     }
 
