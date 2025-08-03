@@ -13,7 +13,6 @@ public class Test {
 
     public static void main(String[] args) {
         System.out.println("salut");
-        System.out.println("cherry-pick commit vreau sa fac pe master");
     }
     public static int a=10;
     int d=10;
