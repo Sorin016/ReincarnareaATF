@@ -23,6 +23,6 @@ public class Test {
     //daca ai metoda statica dar variabila non statica apare greseala
     //dar invers merge
     //ca sa mearga trebue sa creezi variabila care aparine clasei si peurma sa apelezi
-   
+
     }
 
