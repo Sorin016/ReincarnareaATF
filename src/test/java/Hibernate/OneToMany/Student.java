@@ -1,4 +1,4 @@
-package Hibernate.OneToOne;
+package Hibernate.OneToMany;
 
 import jakarta.persistence.*;
 
@@ -15,8 +15,8 @@ public class Student {
     private String prenume;
     private int virsta;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Laptop laptop;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Laptop> laptop=new ArrayList<>();
 
     public int getVirsta() {
         return virsta;
@@ -50,11 +50,11 @@ public class Student {
         this.prenume = prenume;
     }
 
-    public Laptop getLaptop() {
+    public List<Laptop> getLaptop() {
         return laptop;
     }
 
-    public void setLaptop(Laptop laptop) {
+    public void setLaptop(List<Laptop> laptop) {
         this.laptop = laptop;
     }
 
