@@ -1,0 +1,58 @@
+package Hibernate.OneToOne;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Student {
+    @Id
+    private int ID;
+    @Column(name = "numele")
+    private String nume;
+    @Column(name = "prenumele")
+    private String prenume;
+    private int virsta;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Laptop laptop;
+
+    public int getVirsta() {
+        return virsta;
+    }
+
+    public void setVirsta(int virsta) {
+        this.virsta = virsta;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public String getPrenume() {
+        return prenume;
+    }
+
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
+    }
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
+
+}
