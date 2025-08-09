@@ -25,6 +25,15 @@ public class Persiste {
         query.addEntity(Student.class);
         List<Object> list=query.list();
         list.forEach(e-> System.out.println(e));
+
+        NativeQuery<Student> query1 = session.createNativeQuery(
+                "SELECT id, numele FROM student WHERE id = 5"
+        );
+        List<Student> listQuery1 = query1.getResultList();
+        System.out.println("doar citeva coloane din LISTA");
+        list.forEach(System.out::println);
+
+
         transaction.commit();
         session.close();
     }
