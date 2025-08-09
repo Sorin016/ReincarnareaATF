@@ -10,22 +10,22 @@ public class Persiste {
     public static void main(String[] args) {
         Laptop laptopSorin = new Laptop();
         Laptop laptopAdriana = new Laptop();
-        laptopSorin.setID(1);
-        laptopSorin.setMarka("Mac");
-        laptopAdriana.setID(2);
-        laptopAdriana.setMarka("Acer");
+        laptopSorin.setID(5);
+        laptopSorin.setMarka("lenovo PAd");
+        laptopAdriana.setID(6);
+        laptopAdriana.setMarka("Microsoft");
 
         Student studentSorin = new Student();
-        studentSorin.setID(1);
-        studentSorin.setNume("Cucereavu");
-        studentSorin.setPrenume("sorin");
-        studentSorin.setVirsta(28);
+        studentSorin.setID(5);
+        studentSorin.setNume("Vecii");
+        studentSorin.setPrenume("oleg");
+        studentSorin.setVirsta(57);
         studentSorin.setLaptop(laptopSorin);
         Student studentAdriana = new Student();
-        studentAdriana.setID(2);
-        studentAdriana.setNume("Cucereavu");
-        studentAdriana.setPrenume("adriana");
-        studentAdriana.setVirsta(26);
+        studentAdriana.setID(6);
+        studentAdriana.setNume("Harara");
+        studentAdriana.setPrenume("tamara");
+        studentAdriana.setVirsta(61);
         studentAdriana.setLaptop(laptopAdriana);
 
         Configuration configuration = new Configuration().configure().addAnnotatedClass(Student.class)
