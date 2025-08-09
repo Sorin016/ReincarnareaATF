@@ -1,5 +1,6 @@
 package Exercitii.RestulMaiCOmplicat;
 
+import Pages.AutoItPage;
 import StepDefinition.AbstractStepDef;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
