@@ -7,6 +7,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.RestAssured;
 import lombok.extern.slf4j.Slf4j;
 
 import static Utils.ExcelUtil.testDataFromExcelFile;
@@ -35,5 +36,9 @@ public class Hooks extends AbstractStepDef {
         log.info("start connection to Excel file");
         new ExcelUtil().connectioToExcelFile();
         testDataFromExcelFile();
+    }
+    @Before("@API")
+    public void startAPI() {
+        RestAssured.baseURI = restAssuredBaseURL;
     }
 }
